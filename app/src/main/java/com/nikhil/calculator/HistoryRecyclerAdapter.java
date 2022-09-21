@@ -13,12 +13,14 @@ import java.util.List;
 
 public class HistoryRecyclerAdapter extends RecyclerView.Adapter<HistoryRecyclerAdapter.ViewHolder>{
     private List<String> mData;
+    private List<String> mData2;
     private LayoutInflater mInflater;
 //    private ItemClickListener mClickListener;
 
-    HistoryRecyclerAdapter(Context context, List<String> data) {
+    HistoryRecyclerAdapter(Context context, List<String> data, List<String> data2) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.mData2 = data2;
     }
 
     // inflates the row layout from xml when needed
@@ -32,7 +34,9 @@ public class HistoryRecyclerAdapter extends RecyclerView.Adapter<HistoryRecycler
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String history = mData.get(position);
-        holder.myTextView.setText(history);
+        holder.calcHistory.setText(history);
+        String historyResult = mData2.get(position);
+        holder.calcHistoryResult.setText(historyResult);
     }
 
     // total number of rows
@@ -44,11 +48,13 @@ public class HistoryRecyclerAdapter extends RecyclerView.Adapter<HistoryRecycler
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView calcHistory;
+        TextView calcHistoryResult;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.calcHistoryElement);
+            calcHistory = itemView.findViewById(R.id.calcHistoryElement);
+            calcHistoryResult = itemView.findViewById(R.id.calcResultElement);
             itemView.setOnClickListener(this);
         }
 
