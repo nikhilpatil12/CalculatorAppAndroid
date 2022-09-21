@@ -248,28 +248,52 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(currentOperation.getText().toString()!="" && calcResult.getText().toString()==""){
+                    if(!checkSymbols())
+                        currentOperation.setText((Double.parseDouble(currentOperation.getText().toString())/100)+"");
+                }
+                else if(currentOperation.getText().toString()!="" && calcResult.getText().toString()!=""){
+                    calcResult.setText((Double.parseDouble(calcResult.getText().toString())/100)+"");
+                }
             }
         });
         //root
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(currentOperation.getText().toString()!="" && calcResult.getText().toString()==""){
+                    if(!checkSymbols())
+                        currentOperation.setText(Math.sqrt(Double.parseDouble(currentOperation.getText().toString()))+"");
+                }
+                else if(currentOperation.getText().toString()!="" && calcResult.getText().toString()!=""){
+                    calcResult.setText(Math.sqrt(Double.parseDouble(calcResult.getText().toString()))+"");
+                }
             }
         });
         //square
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(currentOperation.getText().toString()!="" && calcResult.getText().toString()==""){
+                    if(!checkSymbols())
+                        currentOperation.setText((Double.parseDouble(currentOperation.getText().toString())*Double.parseDouble(currentOperation.getText().toString()))+"");
+                }
+                else if(currentOperation.getText().toString()!="" && calcResult.getText().toString()!=""){
+                    calcResult.setText((Double.parseDouble(calcResult.getText().toString())*Double.parseDouble(calcResult.getText().toString()))+"");
+                }
             }
         });
         //reciprocal
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(currentOperation.getText().toString()!="" && calcResult.getText().toString()==""){
+                    if(!checkSymbols())
+                        currentOperation.setText((1/Double.parseDouble(currentOperation.getText().toString()))+"");
+                }
+                else if(currentOperation.getText().toString()!="" && calcResult.getText().toString()!=""){
+                    calcResult.setText((1/Double.parseDouble(calcResult.getText().toString()))+"");
+                }
             }
         });
         //+-
